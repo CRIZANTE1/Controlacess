@@ -152,7 +152,8 @@ def add_record(name, rg, placa, marca_carro, horario_entrada, data, empresa, sta
         new_record_df = pd.DataFrame([new_record])
         df = pd.concat([df, new_record_df], ignore_index=True)
 
-    if file_path:
+    import os
+    if file_path and os.environ.get("DEMO_MODE") != "true":
         df.to_excel(file_path, index=False)
     
     return df
@@ -163,7 +164,9 @@ def update_exit_time(name, date, new_exit_time, df, file_path):
     df.loc[(df["Nome"] == name) & (df["Data"] == date), "Horário de Saída"] = new_exit_time
     
     # Salva o DataFrame atualizado no arquivo Excel
-    df.to_excel(file_path, index=False)
+    import os
+    if file_path and os.environ.get("DEMO_MODE") != "true":
+        df.to_excel(file_path, index=False)
     
     return df, "Horário de saída atualizado com sucesso!"
 
@@ -174,7 +177,8 @@ def delete_record(name, data, df, file_path):
 
     df = df[~((df['Nome_lower'] == name_lower) & (df['Data'] == data))]
     df.drop(columns=['Nome_lower'], inplace=True)  # Remove a coluna temporária
-    if file_path:
+    import os
+    if file_path and os.environ.get("DEMO_MODE") != "true":
         df.to_excel(file_path, index=False)
     return df
 
@@ -287,3 +291,4 @@ def mouth_consult(): # Consulta por mês as entradas de uma pessoa especifica
                     st.warning(f"Nenhum registro encontrado para {name_to_check_month} no mês de {month_to_check.strftime('%B %Y')}.")
             else:
                 st.warning("Por favor, selecione o nome e o mês para consulta.")
+
