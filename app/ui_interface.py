@@ -61,9 +61,9 @@ def vehicle_access_interface():
                  "\n5. Sempre que for a primeira vez do visitante ou um ano do acesso repassar o video.\n")
         # Adicionar vídeo
         try:
-            st.video("data/NOVO BRIEFING BAERI 2023.mp4") # Caminho relativo para o vídeo
+            st.video("data/exemplo.mp4") # Caminho relativo para o vídeo
         except Exception as e:
-            st.error(f"Erro ao carregar o vídeo: {e}")
+            st.warning(f"Erro ao carregar o vídeo: {e}")
             st.write("Insira o vídeo manualmente no diretório correto.")
         
     blocks()
@@ -377,3 +377,4 @@ def blocks():
         st.error("Registros Bloqueados:\n" + blocked_info)
     else:
         st.empty()
+
