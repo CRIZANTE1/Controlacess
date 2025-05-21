@@ -36,14 +36,12 @@ Este sistema gerencia o controle de acesso de visitantes e veículos, incluindo 
 │   ├── data_operations.py    # Operações com banco de dados
 │   ├── ui_interface.py       # Interface do usuário
 │   ├── excel_operations.py   # Operações com Excel
-│   ├── adm_interface.py      # Interface administrativa
-│   ├── bcrypt.py            # Funções de criptografia
-│   └── login.py             # Sistema de login
+│  
+│   
+│   
 ├── data/
 │   ├── controle_acesso_veiculos.xlsx
-│   ├── login_attempts.json
-│   ├── users_db.json
-│   └── NOVO BRIEFING BAERI 2023.mp4
+│ 
 ├── main.py
 ├── requirements.txt
 ├── iniciar_sistema.bat
